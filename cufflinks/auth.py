@@ -130,12 +130,11 @@ def set_config_file(sharing=None,theme=None,colorscale=None,offline=None,
 			else:
 				sharing='private'
 	config = get_config_file()
+	config['colorscale'] = colorscale
 	if sharing is not None:
 		config['sharing'] = sharing
 	if theme:
 		config['theme']=theme
-	if colorscale:
-		config['colorscale']=colorscale
 	if offline is not None:
 		config['offline']=offline
 		if offline:

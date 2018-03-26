@@ -684,7 +684,8 @@ def _iplot(self,data=None,layout=None,filename='',sharing=None,
 		theme = auth.get_config_file()['theme']
 	theme_config=tools.getTheme(theme)
 	if colorscale is None:
-		colorscale=theme_config['colorscale'] if 'colorscale' in theme_config else 'dflt'
+		config_colorscale = auth.get_config_file()['colorscale']
+		colorscale=config_colorscale if config_colorscale is not None else theme_config['colorscale'] if 'colorscale' in theme_config else 'dflt'
 	if width is None:
 		if kind != 'pie':
 			width=theme_config['linewidth'] if 'linewidth' in theme_config else 2
